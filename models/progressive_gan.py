@@ -95,11 +95,11 @@ class ProgressiveGAN(BaseGAN):
 
     def getOptimizerD(self):
         return optim.Adam(filter(lambda p: p.requires_grad, self.netD.parameters()),
-                          betas=[0, 0.99], lr=self.config.learningRate)
+                          betas=[0.0, 0.99], lr=self.config.learningRate)
 
     def getOptimizerG(self):
         return optim.Adam(filter(lambda p: p.requires_grad, self.netG.parameters()),
-                          betas=[0, 0.99], lr=self.config.learningRate)
+                          betas=[0.0, 0.99], lr=self.config.learningRate)
 
     def addScale(self, depthNewScale):
         r"""
